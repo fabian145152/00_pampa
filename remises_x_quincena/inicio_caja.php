@@ -83,7 +83,7 @@
 					<td><?php echo $d->name; ?></td>
 					<td><?php echo $d->estado;  ?></td>
 					<td><?php echo $d->address1; ?></td>
-					<td><?php echo $d->address2; ?>sd</td>
+					<td><?php echo $d->address2; ?></td>
 					<td><?php echo $d->email1; ?></td>
 					<td><?php echo $d->phone1; ?></td>
 					<td><?php echo $d->phone2; ?></td>

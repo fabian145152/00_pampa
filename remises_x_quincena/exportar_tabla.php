@@ -11,16 +11,16 @@
 <body>
     <br><br>
     <a href="inicio_caja.php" class="boton">Volver</a>
-
+    <!--
     <form action="pagina_busqueda.php" method="get">
         <label>Buscar:<input type="text" name="movil"></label>
         <input type="submit" name="enviando" value="Dale!">
     </form>
-
+-->
 
     <?php
     include "database.php";
-    $datos = $con->query("select * from caja_remis ");
+    $datos = $con->query("SELECT * FROM caja_remis ORDER BY email1 && no ASC ");
 
     //if ($datos->num_rows > 0) : 
     ?>
@@ -47,7 +47,7 @@
             <tr>
                 <?php $unidad = $d->email1;
                 $movil = substr($unidad, 1);
-                if ($unidad  < 3000 ) {
+                if ($movil  > 2999 && $movil < 4000) {
 
 
                 ?>
@@ -55,14 +55,16 @@
                     <td><?php echo $d->address1 ?></td>
                     <td><?php echo $d->solicitado ?></td>
                     <td><?php echo $d->name ?></td>
-                    <td><?php echo $d->phone1 ?></td>
                     <td><?php echo $d->destino; ?></td>
                     <td><?php echo $d->centro_de_costo ?></td>
                     <td><?php echo $d->no ?></td>
                     <td><?php echo $d->reloj ?></td>
                     <td><?php echo $d->peaje ?></td>
                     <td><?php echo $d->equipaje ?></td>
-                    <th><?php echo $monto_total = $d->reloj + $d->peaje + $d->equipaje ?></th>
+                    <td><?php echo $total = $d->reloj + $d->peaje + $d->equipaje ?></td>
+
+
+
                     <?php
 
                     ?>
@@ -74,54 +76,56 @@
             </tr>
         <?php
 
+            if ($movil  > 2999 && $movil < 4000) {
 
 
-            $servername = "localhost";
-            $username = "root";
-            $password = "belgrado";
-            $dbname = "apampa";
+                $servername = "localhost";
+                $username = "root";
+                $password = "belgrado";
+                $dbname = "apampa";
 
 
-            // Crear una conexión
+                // Crear una conexión
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
+                $conn = new mysqli($servername, $username, $password, $dbname);
 
-            // Verificar la conexión
-            if ($conn->connect_error) {
-                die("Error de conexión: " . $conn->connect_error);
+                // Verificar la conexión
+                if ($conn->connect_error) {
+                    die("Error de conexión: " . $conn->connect_error);
+                }
+
+
+
+                $movil;
+                $nombre = $d->address1;
+                $fecha = $d->solicitado;
+                $origen = $d->name;
+                $destino = $d->destino;
+                $centro = $d->centro_de_costo;
+                $viaje = $d->no;
+                $reloj = $d->reloj;
+                $peaje = $d->peaje;
+                $equipaje = $d->equipaje;
+                $monto_total = $reloj + $peaje + $equipaje;
+
+
+
+                // Crear la consulta de inserción
+                $sql = "INSERT INTO voucher_x_movil(movil, nombre, fecha, origen, destino, centro_de_costo, viaje, reloj, peaje, equipaje, monto_total) 
+            VALUES ('$movil', '$nombre', '$fecha', '$origen', '$destino', '$centro', '$viaje', '$reloj', '$peaje', '$equipaje','$monto_total')";
+
+                // Ejecutar la consulta
+                if ($conn->query($sql) === TRUE) {
+                    //echo "Datos insertados correctamente.";
+                } else {
+                    echo "Error al insertar datos: " . $conn->error;
+                }
+
+                // Cerrar la conexión
+                $conn->close();
             }
-
-
-
-            $movil;
-            $nombre = $d->address1;
-            $fecha = $d->solicitado;
-            $origen = $d->phone1;
-            $destino = "Cambiar";
-            $centro = $d->centro_de_costo;
-            $viaje = $d->no;
-            $reloj = $d->reloj;
-            $peaje = $d->peaje;
-            $equipaje = $d->equipaje;
-
-
-
-            // Crear la consulta de inserción
-            $sql = "INSERT INTO voucher_x_movil(movil, nombre, fecha, origen, destino, centro_de_costo, viaje, reloj, peaje, equipaje, monto_total) 
-            VALUES ('$movil', '$nombre', '$fecha', '$origen', '$destino', '$centro', '$viaje', '$reloj', '$peaje', '$equipaje', '$monto_total')";
-
-            // Ejecutar la consulta
-            if ($conn->query($sql) === TRUE) {
-                //echo "Datos insertados correctamente.";
-            } else {
-                echo "Error al insertar datos: " . $conn->error;
-            }
-
-            // Cerrar la conexión
-            $conn->close();
-
-
         endwhile;
+
         include "export_excel.php";
         ?>
 

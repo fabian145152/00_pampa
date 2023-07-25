@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="../css/boton_al_lado.css">
-	<link rel="stylesheet" href="../css/detalles.css">
+	<link rel="stylesheet" href="../../css/boton_al_lado.css">
+	<link rel="stylesheet" href="../../css/main.css">
 </head>
 
 <body>
@@ -23,15 +23,21 @@
 			<button type="submit" class="boton">Importar Datos</button>
 		</form>
 		&nbsp;
-		<form action="borrar_tabla.php">
-			<button type="submit" class="boton">Limpiar DDBB</button>
-		</form>
+		&nbsp;
+	<br>
 		<!-- 
 		<form action="exportar_tabla.php">
 				<button type="submit" class="boton" target="_blank" rel="noopener noreferrer">Exportar</button> 
 			</form>
 		-->
 		<a href="exportar_tabla.php" class="boton">Exportar</a>
+		<br>
+		<br>
+		<form action="borrar_tabla.php">
+			<button type="submit" class="boton">Limpiar DDBB</button>
+		</form>
+		<br>
+		<a href="../index.php" class="boton">Salir</a>
 	</div>
 
 
