@@ -21,9 +21,12 @@
 			<label class="boton">Archivo (.xlsx)*</label>
 			<input type="file" name="name" id="name" class="boton" placeholder="Archivo (.xlsx)">
 			<button type="submit" class="boton">Importar Datos</button>
+		
 		</form>
 		&nbsp;
 		&nbsp;
+		<br>
+
 		<br>
 		<!-- 
 		<form action="exportar_tabla.php">
@@ -40,6 +43,8 @@
 		<a href="../index.php" class="boton">Salir</a>
 	</div>
 
+
+	?>
 
 	<?php if ($datos->num_rows > 0) : ?>
 

@@ -8,18 +8,15 @@
 </head>
 
 <body>
-    <h1>HOLA</h1>
+    <h1>Hola</h1>
+    <br>
+    <?php $movil = $_GET['movil'];
+    echo $movil;
+    
+    ?>
+    <a href="exportar_tabla.php">Volver</a>
     <?php
     include "database.php";
-    //include("../includes/conexion.php");
-    $con->query("TRUNCATE TABLE caja_remis");
-
-    $con->query("TRUNCATE TABLE cuenta_101");
-
-    header("location:inicio_caja.php");
-
-
-
     ?>
 </body>
 

@@ -28,7 +28,7 @@
     $conexion = new PDO("mysql:host=localhost;dbname=apampa", "root", "belgrado");
 
     // Consulta SQL para obtener los datos de la tabla
-    $query = "SELECT * FROM cuenta_101";
+    $query = "SELECT * FROM voucher_x_movil";
     $statement = $conexion->prepare($query);
     $statement->execute();
 

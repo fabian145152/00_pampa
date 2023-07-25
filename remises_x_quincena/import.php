@@ -2,9 +2,12 @@
 include "database.php";
 include "class.upload.php";
 
+
+
 //set_time_limit(60);
 
 if (isset($_FILES["name"])) {
+    $Movil = $_GET['movil'];
     $up = new Upload($_FILES["name"]);
     if ($up->uploaded) {
         $up->Process("./uploads/");
@@ -100,7 +103,5 @@ if (isset($_FILES["name"])) {
         }
     }
 }
-echo "<script>
-window.location = 'inicio_caja.php';
-</script>
-";
+
+echo "<script> window.location = 'inicio_caja.php'; </script> ";

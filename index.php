@@ -11,14 +11,14 @@
 
 <body>
     <h1>Inicio</h1>
+    <br><br>
+    <a href="cuenta_101/index.php" class="boton" target="_blank" rel="noopener noreferrer">CUENTA 101 FECHA Y HORA</a>
+    <br><br>
+    <a href="remises_x_quincena/inicio_caja.php" class="boton" target="_blank" rel="noopener noreferrer">RESUMEN REMISES X QUINCENA</a>
+    <br><br>
+    <br><br>
+    <br><br>
     <a href="listado_pampa_porte/index.php" class="boton" target="_blank" rel="noopener noreferrer">LISTADO PAMPA PORTE</a>
-    <br><br>
-    <a href="excel/index.php" class="boton" target="_blank" rel="noopener noreferrer">CUENTA 101</a>
-    <br><br>
-    <a href="caja_con_excel/inicio_caja.php" class="boton" target="_blank" rel="noopener noreferrer">CAJA CON EXCEL</a>
-    <br><br>
-    <br><br>
-    <br><br>
     <br><br>
     <a href="vistas/inicio.php" class="boton" target="_blank" rel="noopener noreferrer">listado Titulares</a>
     <br><br>
